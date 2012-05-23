@@ -8,28 +8,6 @@
 include_recipe "build-essential"
 #include_recipe "subversion"
 
-#install subversion
-package "subversion" do
-	action :install
-end
-
-gpac_packages.each do |pkg|
-	package pkg do
-		action :purge
-	end
-end
-
-zlib_package = value_for_platform(
-	[ "ubuntu" ] => {
-		"default" => "zlib1g-dev"
-	},
-	"default" => "zlib1g-dev"
-)
-
-package zlib_package do
-	action :upgrade
-end
-
 subversion "gpac" do
 	repository node[:gpac][:svn_repository]
 	revision node[:gpac][:svn_revision]
