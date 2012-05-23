@@ -25,7 +25,6 @@ Attributes
 * `node['gpac']['prefix']` - Location prefix of where the installation files will go if installing via ':source'
 * `node['gpac']['svn_repository']` - Location of the source subversion repository if installing via ':source'
 * `node['gpac']['svn_revision']` - Revision of the subversion repository to install if installing via ':source'
-* `node['gpac']['svn_destination']` - subversion repository checkout destination folder
 * `node['gpac']['compile_flags']` - Array of flags to use in compilation process if installing via ':source'. GPAC will be recompiled if this attribute is modified after initial compilation.
 
 Usage

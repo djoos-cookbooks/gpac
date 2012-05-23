@@ -6,7 +6,12 @@
 #
 
 include_recipe "build-essential"
-include_recipe "subversion"
+#include_recipe "subversion"
+
+#install subversion
+package "subversion" do
+	action :install
+end
 
 gpac_packages.each do |pkg|
 	package pkg do
@@ -28,14 +33,14 @@ end
 subversion "gpac" do
 	repository node[:gpac][:svn_repository]
 	revision node[:gpac][:svn_revision]
-	destination "#{node[:gpac][:svn_destination]}/gpac"
+	destination "#{Chef::Config[:file_cache_path]}/gpac"
 	action :sync
 	notifies :run, "bash[compile_gpac]"
 end
 
 #Write the flags used to compile the application to disk. If the flags
 #do not match those that are in the compiled_flags attribute - we recompile
-template "#{node[:gpac][:svn_destination]}/gpac-compiled_with_flags" do
+template "#{Chef::Config[:file_cache_path]}/gpac-compiled_with_flags" do
 	source "compiled_with_flags.erb"
 	owner "root"
 	group "root"
@@ -47,7 +52,7 @@ template "#{node[:gpac][:svn_destination]}/gpac-compiled_with_flags" do
 end
 
 bash "compile_gpac" do
-	cwd "#{node[:gpac][:svn_destination]}/gpac"
+	cwd "#{Chef::Config[:file_cache_path]}/gpac"
 	code <<-EOH
 		./configure --prefix=#{node[:gpac][:prefix]} #{node[:gpac][:compile_flags].join(' ')}
 		make clean && make && make install
