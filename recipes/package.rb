@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: chef-gpac
+# Cookbook Name:: gpac
 # Recipe:: package
 #
 # Copyright 2012, Escape Studios

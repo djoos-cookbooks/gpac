@@ -1,7 +1,7 @@
 maintainer       "Escape Studios"
 maintainer_email "dev@escapestudios.com"
-license          ""
-description      "Installs/Configures chef-gpac"
+license          "MIT"
+description      "Installs/Configures gpac"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "0.0.1"
 

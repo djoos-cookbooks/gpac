@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: chef-gpac
+# Cookbook Name:: gpac
 # Attributes:: default
 #
 # Copyright 2012, Escape Studios

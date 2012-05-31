@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: chef-gpac
+# Cookbook Name:: gpac
 # Recipe:: default
 #
 # Copyright 2012, Escape Studios
@@ -14,7 +14,7 @@ end
 
 case node[:gpac][:install_method]
 	when :source
-		include_recipe "chef-gpac::source"
+		include_recipe "gpac::source"
 	when :package
-		include_recipe "chef-gpac::package"
+		include_recipe "gpac::package"
 end

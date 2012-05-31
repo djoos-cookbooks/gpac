@@ -30,7 +30,7 @@ Attributes
 Usage
 =====
 
-1) include `recipe[chef-gpac]` in a run list
+1) include `recipe[gpac]` in a run list
 2) tweak the attributes via attributes/default.rb
 	--- OR ---
 	override the attribute on a higher level (http://wiki.opscode.com/display/chef/Attributes#Attributes-AttributesPrecedence)

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: chef-gpac
+# Cookbook Name:: gpac
 # Library:: helpers
 #
 # Copyright 2012, Escape Studios
