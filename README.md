@@ -41,6 +41,16 @@ References
 * [GPAC home page] (http://gpac.wp.mines-telecom.fr/)
 * [Compiling GPAC on Debian and Ubuntu] (http://gpac.wp.mines-telecom.fr/2011/04/20/compiling-gpac-on-ubuntu/)
 
+CHANGELOG :
+===========
+
+### 0.0.2
+	* don't run compilation more than necessary
+    * upgrade subversion package
+
+### 0.0.1
+    * initial version
+
 License and Authors
 ===================
 

@@ -8,6 +8,10 @@
 include_recipe "build-essential"
 #include_recipe "subversion"
 
+package "subversion" do
+	action :upgrade
+end
+
 subversion "gpac" do
 	repository node[:gpac][:svn_repository]
 	revision node[:gpac][:svn_revision]
@@ -35,5 +39,5 @@ bash "compile_gpac" do
 		./configure --prefix=#{node[:gpac][:prefix]} #{node[:gpac][:compile_flags].join(' ')}
 		make clean && make && make install
 	EOH
-	creates "#{node[:gpac][:prefix]}/bin/gpac"
+	action :nothing
 end
