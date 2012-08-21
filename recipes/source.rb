@@ -19,7 +19,7 @@ subversion "gpac" do
 	revision node[:gpac][:svn_revision]
 	destination "#{Chef::Config[:file_cache_path]}/gpac"
 	action :sync
-	notifies :delete, "file[#{creates}]"
+	notifies :delete, "file[#{creates}]", :immediately
 end
 
 #write the flags used to compile to disk
@@ -31,7 +31,7 @@ template "#{Chef::Config[:file_cache_path]}/gpac-compiled_with_flags" do
 	variables(
 		:compile_flags => node[:gpac][:compile_flags]
 	)
-	notifies :delete, "file[#{creates}]"
+	notifies :delete, "file[#{creates}]", :immediately
 end
 
 bash "compile_gpac" do
