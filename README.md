@@ -41,8 +41,8 @@ References
 * [GPAC home page] (http://gpac.wp.mines-telecom.fr/)
 * [Compiling GPAC on Debian and Ubuntu] (http://gpac.wp.mines-telecom.fr/2011/04/20/compiling-gpac-on-ubuntu/)
 
-CHANGELOG :
-===========
+Changelog
+=========
 
 ### 0.0.3
     * only run compilation when creates file is not present
