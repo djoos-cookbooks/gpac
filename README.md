@@ -44,6 +44,11 @@ References
 CHANGELOG :
 ===========
 
+### 0.0.3
+    * only run compilation when creates file is not present
+    * delete creates file when new source is available and/or compile flags have changed
+    * make use of subversion cookbook
+
 ### 0.0.2
 	* don't run compilation more than necessary
     * upgrade subversion package

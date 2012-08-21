@@ -6,10 +6,12 @@
 #
 
 include_recipe "build-essential"
-#include_recipe "subversion"
+include_recipe "subversion"
 
-package "subversion" do
-	action :upgrade
+creates = "#{node[:gpac][:prefix]}/bin/MP4Box"
+
+file "#{creates}" do
+	action :nothing
 end
 
 subversion "gpac" do
@@ -17,11 +19,10 @@ subversion "gpac" do
 	revision node[:gpac][:svn_revision]
 	destination "#{Chef::Config[:file_cache_path]}/gpac"
 	action :sync
-	notifies :run, "bash[compile_gpac]"
+	notifies :delete, "file[#{creates}]"
 end
 
-#Write the flags used to compile the application to disk. If the flags
-#do not match those that are in the compiled_flags attribute - we recompile
+#write the flags used to compile to disk
 template "#{Chef::Config[:file_cache_path]}/gpac-compiled_with_flags" do
 	source "compiled_with_flags.erb"
 	owner "root"
@@ -30,7 +31,7 @@ template "#{Chef::Config[:file_cache_path]}/gpac-compiled_with_flags" do
 	variables(
 		:compile_flags => node[:gpac][:compile_flags]
 	)
-	notifies :run, "bash[compile_gpac]"
+	notifies :delete, "file[#{creates}]"
 end
 
 bash "compile_gpac" do
@@ -39,5 +40,5 @@ bash "compile_gpac" do
 		./configure --prefix=#{node[:gpac][:prefix]} #{node[:gpac][:compile_flags].join(' ')}
 		make clean && make && make install
 	EOH
-	action :nothing
+	creates "#{creates}"
 end
