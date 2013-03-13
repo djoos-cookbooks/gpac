@@ -2,7 +2,7 @@
 # Cookbook Name:: gpac
 # Library:: helpers
 #
-# Copyright 2012, Escape Studios
+# Copyright 2012-2013, Escape Studios
 #
 
 module GPAC

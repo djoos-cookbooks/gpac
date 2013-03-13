@@ -2,7 +2,7 @@
 # Cookbook Name:: gpac
 # Recipe:: source
 #
-# Copyright 2012, Escape Studios
+# Copyright 2012-2013, Escape Studios
 #
 
 include_recipe "build-essential"
