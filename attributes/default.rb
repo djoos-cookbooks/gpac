@@ -7,7 +7,7 @@
 
 default[:gpac][:install_method] = :source
 default[:gpac][:prefix] = "/usr/local"
-default[:gpac][:svn_repository] = "https://gpac.svn.sourceforge.net/svnroot/gpac/trunk/gpac"
+default[:gpac][:svn_repository] = "svn://svn.code.sf.net/p/gpac/code/trunk/gpac"
 default[:gpac][:svn_revision] = "HEAD"
 default[:gpac][:compile_flags] = []
 

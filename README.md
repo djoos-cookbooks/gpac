@@ -41,24 +41,6 @@ References
 * [GPAC home page] (http://gpac.wp.mines-telecom.fr/)
 * [Compiling GPAC on Debian and Ubuntu] (http://gpac.wp.mines-telecom.fr/2011/04/20/compiling-gpac-on-ubuntu/)
 
-Changelog
-=========
-
-### 0.0.4
-    * bugfix - delete creates immediately
-
-### 0.0.3
-    * only run compilation when creates file is not present
-    * delete creates file when new source is available and/or compile flags have changed
-    * make use of subversion cookbook
-
-### 0.0.2
-	* don't run compilation more than necessary
-    * upgrade subversion package
-
-### 0.0.1
-    * initial version
-
 License and Authors
 ===================
 
