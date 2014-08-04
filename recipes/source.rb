@@ -8,6 +8,13 @@
 include_recipe 'build-essential'
 include_recipe 'subversion'
 
+gpac_packages.each do |pkg|
+  package pkg do
+    action :purge
+    ignore_failure true
+  end
+end
+
 creates = "#{node[:gpac][:prefix]}/bin/MP4Box"
 
 file creates do
