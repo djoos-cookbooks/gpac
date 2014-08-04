@@ -2,22 +2,28 @@
 # Cookbook Name:: gpac
 # Library:: helpers
 #
-# Copyright 2012-2013, Escape Studios
+# Copyright 2012-2014, Escape Studios
 #
 
+# GPAC module
 module GPAC
-	module Helpers
-		#Returns an array of package names that will install GPAC on a node.
-		#Package names returned are determined by the platform running this recipe.
-		def gpac_packages
-			value_for_platform(
-				[ "ubuntu" ] => { "default" => [ "gpac" ] },
-				"default" => [ "gpac" ]
-			)
-		end
-	end
+  # helpers module
+  module Helpers
+    # Returns an array of package names that will install GPAC on a node.
+    # Package names returned are determined by the platform running this recipe.
+    def gpac_packages
+      value_for_platform(
+        ['ubuntu'] => { 'default' => ['gpac'] },
+        'default' => ['gpac']
+      )
+    end
+  end
 end
 
-class Chef::Recipe
-	include GPAC::Helpers
+# Chef class
+class Chef
+  # Recipe class
+  class Recipe
+    include GPAC::Helpers
+  end
 end

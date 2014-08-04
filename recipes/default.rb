@@ -2,19 +2,19 @@
 # Cookbook Name:: gpac
 # Recipe:: default
 #
-# Copyright 2012-2013, Escape Studios
+# Copyright 2012-2014, Escape Studios
 #
 
-#install dependencies
+# install dependencies
 node[:gpac][:dependencies].each do |pkg|
-	package pkg do
-		action :upgrade
-	end
+  package pkg do
+    action :upgrade
+  end
 end
 
 case node[:gpac][:install_method]
-	when :source
-		include_recipe "gpac::source"
-	when :package
-		include_recipe "gpac::package"
+when :source
+  include_recipe 'gpac::source'
+when :package
+  include_recipe 'gpac::package'
 end
