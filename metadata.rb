@@ -4,7 +4,7 @@ maintainer_email 'dev@escapestudios.com'
 license 'MIT'
 description 'Installs/Configures gpac'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.2.0'
+version '0.2.1'
 
 %w( debian ubuntu ).each do |os|
   supports os
