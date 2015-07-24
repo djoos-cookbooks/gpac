@@ -25,8 +25,8 @@ Attributes
 
 * `node['gpac']['install_method']` - Installation method, ':source' or ':package' - default ':source'
 * `node['gpac']['prefix']` - Location prefix of where the installation files will go if installing via ':source'
-* `node['gpac']['svn_repository']` - Location of the source subversion repository if installing via ':source'
-* `node['gpac']['svn_revision']` - Revision of the subversion repository to install if installing via ':source'
+* `node['gpac']['git_repository']` - Location of the source git repository if installing via ':source'
+* `node['gpac']['git_revision']` - Revision of the git repository to install if installing via ':source'
 * `node['gpac']['compile_flags']` - Array of flags to use in compilation process if installing via ':source'
 
 Usage
@@ -48,7 +48,7 @@ License and Authors
 
 Author: David Joos <david.joos@escapestudios.com>
 Author: Escape Studios Development <dev@escapestudios.com>
-Copyright: 2012-2014, Escape Studios
+Copyright: 2012-2015, Escape Studios
 
 Unless otherwise noted, all files are released under the MIT license,
 possible exceptions will contain licensing information in them.
