@@ -2,18 +2,18 @@
 # Cookbook Name:: gpac
 # Attributes:: default
 #
-# Copyright 2012-2014, Escape Studios
+# Copyright 2012-2015, Escape Studios
 #
 
-default[:gpac][:install_method] = :source
-default[:gpac][:prefix] = '/usr/local'
-default[:gpac][:svn_repository] = 'svn://svn.code.sf.net/p/gpac/code/trunk/gpac'
-default[:gpac][:svn_revision] = 'HEAD'
-default[:gpac][:compile_flags] = []
+default['gpac']['install_method'] = 'source'
+default['gpac']['prefix'] = '/usr/local'
+default['gpac']['git_repository'] = 'git://github.com/gpac/gpac.git'
+default['gpac']['git_revision'] = 'HEAD'
+default['gpac']['compile_flags'] = []
 
-case node[:platform]
+case node['platform']
 when 'debian', 'ubuntu'
-  default[:gpac][:dependencies] = [
+  default['gpac']['dependencies'] = [
     'zlib1g-dev',
     'xulrunner-1.9.2-dev',
     'libfreetype6-dev',
@@ -47,5 +47,5 @@ when 'debian', 'ubuntu'
     'dvb-apps'
   ]
 else
-  default[:gpac][:dependencies] = []
+  default['gpac']['dependencies'] = []
 end

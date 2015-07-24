@@ -4,14 +4,14 @@ maintainer_email 'dev@escapestudios.com'
 license 'MIT'
 description 'Installs/Configures gpac'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.2.1'
+version '0.3.0'
 
 %w( debian ubuntu ).each do |os|
   supports os
 end
 
 depends 'build-essential'
-depends 'subversion'
+depends 'git'
 
 recipe 'gpac', 'Installs gpac.'
 recipe 'gpac::package', 'Installs gpac using packages.'

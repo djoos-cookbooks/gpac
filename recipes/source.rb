@@ -2,11 +2,11 @@
 # Cookbook Name:: gpac
 # Recipe:: source
 #
-# Copyright 2012-2014, Escape Studios
+# Copyright 2012-2015, Escape Studios
 #
 
 include_recipe 'build-essential'
-include_recipe 'subversion'
+include_recipe 'git'
 
 gpac_packages.each do |pkg|
   package pkg do
@@ -15,16 +15,15 @@ gpac_packages.each do |pkg|
   end
 end
 
-creates = "#{node[:gpac][:prefix]}/bin/MP4Box"
+creates = "#{node['gpac']['prefix']}/bin/MP4Box"
 
 file creates do
   action :nothing
 end
 
-subversion 'gpac' do
-  repository node[:gpac][:svn_repository]
-  revision node[:gpac][:svn_revision]
-  destination "#{Chef::Config[:file_cache_path]}/gpac"
+git "#{Chef::Config[:file_cache_path]}/gpac" do
+  repository node['gpac']['git_repository']
+  reference node['gpac']['git_revision']
   action :sync
   notifies :delete, "file[#{creates}]", :immediately
 end
@@ -36,7 +35,7 @@ template "#{Chef::Config[:file_cache_path]}/gpac-compiled_with_flags" do
   group 'root'
   mode 0600
   variables(
-    :compile_flags => node[:gpac][:compile_flags]
+    :compile_flags => node['gpac']['compile_flags']
   )
   notifies :delete, "file[#{creates}]", :immediately
 end
@@ -44,7 +43,7 @@ end
 bash 'compile_gpac' do
   cwd "#{Chef::Config[:file_cache_path]}/gpac"
   code <<-EOH
-    ./configure --prefix=#{node[:gpac][:prefix]} #{node[:gpac][:compile_flags].join(' ')}
+    ./configure --prefix=#{node['gpac']['prefix']} #{node['gpac']['compile_flags'].join(' ')}
     make clean && make && make install
   EOH
   creates creates
